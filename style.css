@@ -13,6 +13,18 @@ body {
     color: hsl(48, 67.3%, 59.2%);
 }
 
+td img{
+    width: 3em;
+}
+
+td:nth-child(1) {
+    font-size: 80%;
+}
+
+th {
+    font-size: 85%;
+}
+
 th,
 td {
     border: 1px solid grey;
@@ -24,12 +36,4 @@ td {
     vertical-align: middle;
 
 
-}
-
-th {
-    font-size: 85%;
-}
-
-td:nth-child(1) {
-    font-size: 80%;
 }
