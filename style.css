@@ -1,5 +1,6 @@
 body {
     font-family: Georgia;
+    cursor: url(img/ui/cursor.png), default;
 }
 
 .bordered_table {
