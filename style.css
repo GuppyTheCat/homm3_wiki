@@ -22,6 +22,9 @@ td img{
 td:nth-child(1) {
     font-size: 80%;
 }
+td:nth-child(4) img{
+    width: 80%;
+}
 
 th {
     font-size: 85%;
