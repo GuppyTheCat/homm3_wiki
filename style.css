@@ -12,17 +12,20 @@ body {
     background-image: url('img/bg/default_bg_blue.jpg');
     color: hsl(48, 67.3%, 59.2%);
 }
-table{
+
+table {
     display: inline-block;
 }
-td img{
+
+td img {
     width: 3em;
 }
 
 td:nth-child(1) {
     font-size: 80%;
 }
-td:nth-child(4) img{
+
+td:nth-child(4) img {
     width: 80%;
 }
 
