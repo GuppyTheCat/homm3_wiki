@@ -34,18 +34,35 @@
         margin: 5px;
     }
     </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+    $(document).ready(function() {
+        $(".name").mouseover(function() {
+            $(".name").css("color", "gray");
+        });
+        $(".name").mouseout(function(){
+            $(".name").css("color", "#efc66e");
+        });
+    });
+    /*$(document).ready(function() {
+        $(this).mouseover(function() {
+            if ($(this).hasClass('name'))
+                $(this).css("color", "gray")
+        });
+    });*/
+    </script>
 </head>
 
 <body>
     <div class="border">
-        <p>Каменная кожа<p>
+        <p class='name'>Каменная кожа<p>
                 <img src="img/spells/stone_skin.png" alt='Каменная кожа'><br>
-                    Уровень: 1<br>
-                    Стоимость: 5<br>
-                    Длительность: Сила Магии<br><br>
-                    Базовая Магия земли :<br>Выбор цели: дружественное существо. Защита +3.<br><br>
-                    Продвинутая Магия земли :<br>Выбор цели: дружественное существо. Защита +6.<br><br>
-                    Экспертная Магия земли :<br>Мгновенное. Защита всех дружественных существ +6.<br>
+                Уровень: 1<br>
+                Стоимость: 5<br>
+                Длительность: Сила Магии<br><br>
+                Базовая Магия земли :<br>Выбор цели: дружественное существо. Защита +3.<br><br>
+                Продвинутая Магия земли :<br>Выбор цели: дружественное существо. Защита +6.<br><br>
+                Экспертная Магия земли :<br>Мгновенное. Защита всех дружественных существ +6.<br>
     </div>
 </body>
 

@@ -11,8 +11,6 @@ body {
     border-image: url(img/ui/border.png) 30 round;
     background-image: url('img/bg/default_bg_blue.jpg');
     color: hsl(48, 67.3%, 59.2%);
-            margin-left: auto;
-        margin-right: auto;
 }
 
 table {
