@@ -12,17 +12,19 @@ a{
 
 /* Style page content */
 .main {
-  margin-left: 220px; /* Same as the width of the sidebar */
   padding-left:10px;
+  margin-left: 230px;
+  margin-top: -220px;
 }
 
 .sidenav {
   height: 70%; /* Full-height: remove this if you want "auto" height */
   width: 160px; /* Set the width of the sidebar */
-  position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+  position: sticky;
+  top: 0;
   background-image: url('img/bg/default_bg_blue_dark.jpg');
   overflow-x: hidden; /* Disable horizontal scroll */
-  margin: 0;
+  margin-top: 0;
   border: 30px solid transparent;
   border-image: url(img/ui/border.png) 30 round;
   -moz-border-image: url(img/ui/border.png) 30 round;
@@ -35,9 +37,7 @@ a{
   padding: 6px 8px 6px 16px;
   text-decoration: none;
   font-size: 25px;
-  color: hsl(48, 67.3%, 59.2%);
   display: block;
-
 }
 
 /* When you mouse over the navigation links, change their color */
@@ -47,7 +47,7 @@ a{
 
 .topnav {
   height: 10em;
-  background-color: #333;
+  background-color: teal;
   overflow: hidden;
 }
 

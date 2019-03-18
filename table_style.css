@@ -10,7 +10,7 @@
 
 table {
     display: inline-block;
-
+    border-collapse: collapse;
 }
 
 td img {
@@ -33,11 +33,10 @@ th,
 td {
     border: 1px solid grey;
     padding: 5px;
-    background: linear-gradient(135deg, #f5a905, #efc66e);
+    background-image: url('img/bg/default_bg_blue_dark.jpg');
+    /*background: linear-gradient(135deg, #f5a905, #efc66e);
     -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    -webkit-text-fill-color: transparent;*/
     text-align: center;
     vertical-align: middle;
-
-
 }
