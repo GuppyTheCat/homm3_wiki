@@ -36,18 +36,12 @@
     </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script>
-    $(document).ready(function() {
+    /*$(document).ready(function() {
         $(".name").mouseover(function() {
             $(".name").css("color", "gray");
         });
         $(".name").mouseout(function(){
             $(".name").css("color", "#efc66e");
-        });
-    });
-    /*$(document).ready(function() {
-        $(this).mouseover(function() {
-            if ($(this).hasClass('name'))
-                $(this).css("color", "gray")
         });
     });*/
     </script>
@@ -55,7 +49,7 @@
 
 <body>
     <div class="border">
-        <p class='name'>Каменная кожа<p>
+        <p class="name" onmouseover="this.style.color='gray'" onmouseout="this.style.color='#efc66e'" ;>Каменная кожа<p>
                 <img src="img/spells/stone_skin.png" alt='Каменная кожа'><br>
                 Уровень: 1<br>
                 Стоимость: 5<br>
