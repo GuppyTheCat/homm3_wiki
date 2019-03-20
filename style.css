@@ -12,26 +12,21 @@ a {
 
 #content {
     margin-left: 250px;
-    margin-top: -220px;
+    margin-top:-220px;
     margin-right: 230px;
 }
 
-/* Style page content */
-#main {
+main {
     margin: auto;
 }
 
-#sidenav {
-    height: 70%;
-    /* Full-height: remove this if you want "auto" height */
+nav {
     width: 180px;
-    /* Set the width of the sidebar */
     position: sticky;
     position: -webkit-sticky;
     top: 0;
     background-image: url('img/bg/default_bg_blue_dark.jpg');
     overflow-x: hidden;
-    /* Disable horizontal scroll */
     margin-top: 0;
     border: 30px solid transparent;
     border-image: url(img/ui/border.png) 30 round;
@@ -40,16 +35,14 @@ a {
     -o-border-image: url(img/ui/border.png) 30 round;
 }
 
-/* The navigation menu links */
-#sidenav > a, .dropdown-btn {
+nav > a, .dropdown-btn {
     padding: 6px 8px 6px 10px;
     text-decoration: none;
     font-size: 25px;
     display: block;
 }
 
-/* When you mouse over the navigation links, change their color */
-#sidenav a:hover, .dropdown-btn:hover {
+nav a:hover, .dropdown-btn:hover {
     color: #f1f1f1;
 }
 

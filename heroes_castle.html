@@ -5,23 +5,35 @@
     <title>heroes_castle</title>
     <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="stylesheet" type="text/css" href="table_style.css">
+    <script type="text/javascript">
+    /*function content_margin() {
+        var nav = document.querySelector('nav')
+        var compStyles = window.getComputedStyle(nav);
+        var margin = +compStyles.getPropertyValue('height').slice(0, -2) + 100;
+        document.getElementById("content").style.marginTop = "-" + margin + "px";
+    }*/
+    </script>
 </head>
 
 <body>
     <div id="full" style="width: 90%; margin:auto;">
-        <div id="header" style="height:15em"><img src="img/header.png" style="display:block;margin:auto;"></div>
-        <div id="main">
-            <div id="sidenav">
-                <a class="dropdown-btn">Герои</a>
+        <header style="height:15em"><img src="img/header.png" style="display:block;margin:auto;"></header>
+        <main>
+            <nav>
+                <a class="dropdown-btn" onclick="content_margin()">Герои</a>
                 <div class="dropdown-container">
                     <a href="heroes.html">Список героев</a>
                     <a href="#">Вторичные навыки</a>
                     <a href="#">Специализации</a>
                 </div>
-                <a href="#">Артефакты</a>
+                <a class="dropdown-btn" onclick="content_margin()">Артефакты</a>
+                <div class="dropdown-container">
+                    <a href="#">Все артефакты</a>
+                    <a href="#">Сборные артефакты</a>
+                </div>
                 <a href="#">Магия</a>
                 <a href="#">Ресурсы</a>
-            </div>
+            </nav>
             <div id="content">
                 <table class="bordered_table">
                     <thead>
@@ -351,7 +363,7 @@
                     </tbody>
                 </table>
             </div>
-        </div>
+        </main>
     </div>
     <script type="text/javascript">
     var dropdown = document.getElementsByClassName("dropdown-btn");

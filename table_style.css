@@ -4,8 +4,8 @@
     -webkit-border-image: url(img/ui/border.png) 30 round;
     -o-border-image: url(img/ui/border.png) 30 round;
     border-image: url(img/ui/border.png) 30 round;
+
     background-image: url('img/bg/default_bg_blue.jpg');
-    color: hsl(48, 67.3%, 59.2%);
     overflow-x: auto;
 }
 
@@ -35,9 +35,6 @@ td {
     border: 1px solid grey;
     padding: 5px;
     background-image: url('img/bg/default_bg_blue_dark.jpg');
-    /*background: linear-gradient(135deg, #f5a905, #efc66e);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;*/
     text-align: center;
     vertical-align: middle;
 }
