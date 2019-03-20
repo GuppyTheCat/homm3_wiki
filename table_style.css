@@ -6,6 +6,8 @@
     border-image: url(img/ui/border.png) 30 round;
     background-image: url('img/bg/default_bg_blue.jpg');
     color: hsl(48, 67.3%, 59.2%);
+    max-width: 80%;
+    overflow-x: auto;
 }
 
 table {
