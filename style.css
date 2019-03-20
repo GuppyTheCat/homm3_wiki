@@ -2,17 +2,17 @@ body {
     font-family: Georgia;
     cursor: url(img/ui/cursor.png), default;
     background-image: url('img/bg/default_bg_blue_dark.jpg');
-    color: hsl(48, 67.3%, 59.2%);
+    color: #ddc151;
 }
 
 a {
     text-decoration: none;
-    color: hsl(48, 67.3%, 59.2%);
+    color: #ddc151;
 }
 
 #content {
     margin-left: 250px;
-    margin-top:-220px;
+    margin-top: -220px;
     margin-right: 230px;
 }
 
@@ -35,24 +35,28 @@ nav {
     -o-border-image: url(img/ui/border.png) 30 round;
 }
 
-nav > a, .dropdown-btn {
+nav>a,
+.dropdown-btn {
     padding: 6px 8px 6px 10px;
     text-decoration: none;
     font-size: 25px;
     display: block;
 }
 
-nav a:hover, .dropdown-btn:hover {
+nav a:hover,
+.dropdown-btn:hover {
     color: #f1f1f1;
 }
 
 .dropdown-container {
-  display: none;
-  padding-left: 25px;
+    display: none;
+    padding-left: 25px;
 }
+
 .dropdown-container a {
-  font-size: 16px;
+    font-size: 16px;
 }
+
 /* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
 @media screen and (max-height: 450px) {
     .sidenav {
