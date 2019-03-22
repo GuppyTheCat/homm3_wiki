@@ -5,12 +5,24 @@
     <title>heroes_castle</title>
     <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="stylesheet" type="text/css" href="table_style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script type="text/javascript">
     /*function content_margin() {
         var nav = document.querySelector('nav')
         var margin = +window.getComputedStyle(nav).getPropertyValue('height').slice(0, -2) + 100;
         document.getElementById("content").style.marginTop = "-" + margin + "px";
     }*/
+    function content_margin() {
+        var xhttp = new XMLHttpRequest();
+        xhttp.open("GET", "json/spells_base.json", false);
+        xhttp.send();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                var spells = JSON.parse(xhttp.responseText);
+                alert(spells[0]);
+            };
+        };
+    }
     </script>
 </head>
 
@@ -25,7 +37,7 @@
                     <a href="#">Вторичные навыки</a>
                     <a href="#">Специализации</a>
                 </div>
-                <a class="dropdown-btn" onclick="content_margin()">Артефакты</a>
+                <a class="dropdown-btn">Артефакты</a>
                 <div class="dropdown-container">
                     <a href="#">Все артефакты</a>
                     <a href="#">Сборные артефакты</a>
