@@ -22,9 +22,6 @@ main {
 
 nav {
     width: 180px;
-    position: sticky;
-    position: -webkit-sticky;
-    top: 0;
     background-image: url('img/bg/default_bg_blue_dark.jpg');
     overflow-x: hidden;
     margin-top: 0;
@@ -55,6 +52,20 @@ nav a:hover,
 
 .dropdown-container a {
     font-size: 16px;
+}
+
+.sticky {
+    position: -webkit-sticky;
+    position: -moz-sticky;
+    position: -ms-sticky;
+    position: -o-sticky;
+    position: sticky;
+    top: 0;
+}
+
+#full {
+    width: 90%;
+    margin: auto;
 }
 
 /* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
