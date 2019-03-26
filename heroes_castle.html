@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 
 <head>
+    <meta charset="utf-8"/>
     <title>heroes_castle</title>
     <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="stylesheet" type="text/css" href="table_style.css">
@@ -10,7 +11,7 @@
     $(function() {
         $(document).ready(function() {
             $(".dropdown-btn").click(function() {
-                $.getJSON("http://localhost:8080/json/spells_base.json", function(data) { console.log(data.spells[0].name) });
+                $.getJSON("json/spells_base.json", function(data) { console.log(data.spells[1].name) });
             });
         });
     });
