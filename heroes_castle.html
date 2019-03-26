@@ -2,7 +2,7 @@
 <html lang="ru">
 
 <head>
-    <meta charset="utf-8"/>
+    <meta charset="utf-8" />
     <title>heroes_castle</title>
     <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="stylesheet" type="text/css" href="table_style.css">
@@ -10,9 +10,20 @@
     <script type="text/javascript">
     $(function() {
         $(document).ready(function() {
-            $(".dropdown-btn").click(function() {
-                $.getJSON("json/spells_base.json", function(data) { console.log(data.spells[1].name) });
+            $(".heroes_spell").click(function() {
+                $.getJSON("json/spells_base.json", function(data) {
+                    console.log(data.spells.find(x => x.name === $(this).prop("alt"))) ;
+                });
             });
+        });
+    });
+    $(this).click(function() {
+        $(document).ready(function() {
+            if ($(this).hasClass("heroes_spell")){
+                $.getJSON("json/spells_base.json", function(data) {
+                    console.log(data.spells.find(x => x.name === $(this).prop("alt"))) ;
+                });
+            };
         });
     });
     </script>
@@ -221,7 +232,7 @@
                             </td>
                             <td>Священник</td>
                             <td><img src="img/speciality_skills/first_aid.png" alt="Первая помощь"></td>
-                            <td><img src="img/spells/stone_skin.png"></td>
+                            <td><img src="img/spells/stone_skin.png" class="heroes_spell" alt="Каменная кожа"></td>
                             <td><img src="img/secondary_skills/Basic_Wisdom.png" alt="Базовая Мудрость"></td>
                             <td><img src="img/secondary_skills/Basic_First_Aid.png" alt="Базовая Первая Помощь"></td>
                             <td>1560</td>
@@ -240,7 +251,7 @@
                             </td>
                             <td>Священник</td>
                             <td><img src="img/speciality_skills/bless.png" alt="Благословление"></td>
-                            <td><img src="img/spells/bless.png"></td>
+                            <td><img src="img/spells/bless.png" class="heroes_spell" alt="Благословление"></td>
                             <td><img src="img/secondary_skills/Basic_Wisdom.png" alt="Базовая Мудрость"></td>
                             <td><img src="img/secondary_skills/Basic_Diplomacy.png" alt="Базовая Дипломатия"></td>
                             <td>1560</td>
@@ -259,7 +270,7 @@
                             </td>
                             <td>Священник</td>
                             <td><img src="img/speciality_skills/weakness.png" alt="Слабость"></td>
-                            <td><img src="img/spells/weakness.png"></td>
+                            <td><img src="img/spells/weakness.png" class="heroes_spell" alt="Слабость"></td>
                             <td><img src="img/secondary_skills/Basic_Wisdom.png" alt="Базовая Мудрость"></td>
                             <td><img src="img/secondary_skills/Basic_Estates.png" alt="Базовое Имущество"></td>
                             <td>1560</td>
@@ -277,8 +288,8 @@
                                 Аделаида
                             </td>
                             <td>Священник</td>
-                            <td><img src="img/speciality_skills/frost_ring.png" alt="Кольцо холода"></td>
-                            <td><img src="img/spells/frost_ring.png"></td>
+                            <td><img src="img/speciality_skills/frost_ring.png" alt="Ледяное кольцо"></td>
+                            <td><img src="img/spells/frost_ring.png" class="heroes_spell" alt="Ледяное кольцо"></td>
                             <td><img src="img/secondary_skills/Advanced_Wisdom.png" alt="Продвинутая Мудрость"></td>
                             <td>-</td>
                             <td>1560</td>
@@ -297,7 +308,7 @@
                             </td>
                             <td>Священник</td>
                             <td><img src="img/speciality_skills/monks.png" alt="Монахи"></td>
-                            <td><img src="img/spells/curse.png"></td>
+                            <td><img src="img/spells/curse.png" class="heroes_spell" alt="Проклятие"></td>
                             <td><img src="img/secondary_skills/Basic_Wisdom.png" alt="Базовая Мудрость"></td>
                             <td><img src="img/secondary_skills/Basic_Mysticism.png" alt="Базовый Мистицизм"></td>
                             <td>1560</td>
@@ -316,7 +327,7 @@
                             </td>
                             <td>Священник</td>
                             <td><img src="img/speciality_skills/eagle_eye.png" alt="Зоркость"></td>
-                            <td><img src="img/spells/dispel.png"></td>
+                            <td><img src="img/spells/dispel.png" class="heroes_spell" alt="Снятие заклинаний"></td>
                             <td><img src="img/secondary_skills/Basic_Wisdom.png" alt="Базовая Мудрость"></td>
                             <td><img src="img/secondary_skills/Basic_Eagle_Eye.png" alt="Базовая Зоркость"></td>
                             <td>1560</td>
@@ -335,7 +346,7 @@
                             </td>
                             <td>Священник</td>
                             <td><img src="img/speciality_skills/prayer.png" alt="Молитва"></td>
-                            <td><img src="img/spells/prayer.png"></td>
+                            <td><img src="img/spells/prayer.png" class="heroes_spell" alt="Молитва"></td>
                             <td><img src="img/secondary_skills/Basic_Wisdom.png" alt="Базовая Мудрость"></td>
                             <td><img src="img/secondary_skills/Basic_Learning.png" alt="Базовое Обучение"></td>
                             <td>1560</td>
@@ -354,7 +365,7 @@
                             </td>
                             <td>Священник</td>
                             <td><img src="img/speciality_skills/350gold.png" alt="350 золота"></td>
-                            <td><img src="img/spells/cure.png"></td>
+                            <td><img src="img/spells/cure.png" class="heroes_spell" alt="Лечение"></td>
                             <td><img src="img/secondary_skills/Basic_Wisdom.png" alt="Базовая мудрость"></td>
                             <td><img src="img/secondary_skills/Basic_Intelligence.png" alt="Базовый Интеллект"></td>
                             <td>1560</td>
