@@ -7,31 +7,24 @@
     <link rel="stylesheet" type="text/css" href="table_style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script type="text/javascript">
-    /*function content_margin() {
-        var nav = document.querySelector('nav')
-        var margin = +window.getComputedStyle(nav).getPropertyValue('height').slice(0, -2) + 100;
-        document.getElementById("content").style.marginTop = "-" + margin + "px";
-    }*/
-    function content_margin() {
-        var xhttp = new XMLHttpRequest();
-        xhttp.open("GET", "json/spells_base.json", false);
-        xhttp.send();
-        xhttp.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
-                var spells = JSON.parse(xhttp.responseText);
-                alert(spells[0]);
-            };
-        };
-    }
+    $(function() {
+        $(document).ready(function() {
+            $(".dropdown-btn").click(function() {
+                $.getJSON("http://localhost:8080/json/spells_base.json", function(data) { console.log(data.spells[0].name) });
+            });
+        });
+    });
     </script>
 </head>
 
 <body>
     <div id="full">
-        <header style="height:15em;"><!--<img src="img/header.png" style="display:block;margin:auto;">--></header>
+        <header style="height:15em;">
+            <!--<img src="img/header.png" style="display:block;margin:auto;">-->
+        </header>
         <main>
             <nav class="sticky">
-                <a class="dropdown-btn" onclick="content_margin()">Герои</a>
+                <a class="dropdown-btn">Герои</a>
                 <div class="dropdown-container">
                     <a href="heroes.html">Список героев</a>
                     <a href="#">Вторичные навыки</a>

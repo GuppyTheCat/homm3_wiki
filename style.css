@@ -1,3 +1,11 @@
+html {
+    background: url(img/bg/back_solmir2.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
 body {
     font-family: Georgia;
     cursor: url(img/ui/cursor.png), default;
@@ -10,14 +18,10 @@ a {
     color: #ddc151;
 }
 
-#content {
-    margin-left: 250px;
-    margin-top: -220px;
-    margin-right: 230px;
-}
-
 main {
     margin: auto;
+    display: flex;
+    justify-content: center;
 }
 
 nav {
@@ -61,6 +65,12 @@ nav a:hover,
     position: -o-sticky;
     position: sticky;
     top: 0;
+    align-self: flex-start;
+}
+
+#content {
+    margin-left: 10px;
+    width: calc(75% - 190px);
 }
 
 #full {
@@ -77,12 +87,4 @@ nav a:hover,
     .sidenav a {
         font-size: 18px;
     }
-}
-
-html { 
-  background: url(img/bg/back_solmir2.jpg) no-repeat center center fixed; 
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
 }
