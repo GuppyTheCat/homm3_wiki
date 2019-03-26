@@ -1,7 +1,7 @@
 body {
     font-family: Georgia;
     cursor: url(img/ui/cursor.png), default;
-    background-image: url('img/bg/default_bg_blue_dark.jpg');
+    /*background-image: url('img/bg/default_bg_blue_dark.jpg');*/
     color: #ddc151;
 }
 
@@ -64,7 +64,7 @@ nav a:hover,
 }
 
 #full {
-    width: 90%;
+    width: 100%;
     margin: auto;
 }
 
@@ -77,4 +77,12 @@ nav a:hover,
     .sidenav a {
         font-size: 18px;
     }
+}
+
+html { 
+  background: url(img/bg/back_solmir2.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }

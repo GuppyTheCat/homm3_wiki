@@ -10,8 +10,9 @@
 }
 
 table {
-    display: inline-block;
+    /*display: inline-block;*/
     border-collapse: collapse;
+    margin: auto;
 }
 
 td img {
