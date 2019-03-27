@@ -7,39 +7,60 @@
     <link rel="stylesheet" type="text/css" href="style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script type="text/javascript">
-    $(function show_spellbox() {
+    $(function show_popbox() {
         $(document).ready(function() {
             var moveLeft = 0;
             var moveDown = 0;
-            $('.heroes_spell').hover(function(e) {
-                $.getJSON("json/spells_base.json", function(data) {
-                    var item = data.spells.find(x => x.name === $(e.target).prop("alt"));
-                    $("#spellbox_img").prop("src", $(e.target).prop("src"));
-                    $("#spellbox_name").text(item.name);
-                    $("#spellbox_lvl").text("Уровень: " + item.lvl);
-                    $("#spellbox_cost").text("Стоимость: " + item.cost);
-                    $("#spellbox_duration").text("Длительность: " + item.duration);
-                    $("#spellbox_eff1").text(item.eff1);
-                    $("#spellbox_eff2").text(item.eff2);
-                    $("#spellbox_eff3").text(item.eff3);
-                    $("#spellbox_descr").text(item.descr);
-                });
-
-                $("#spellbox").show();
+            $('.pop_target').hover(function(e) {
+                var target = '#' + ($(this).attr('data-popbox'));
+                switch (target) {
+                    case "#spellbox":
+                        {
+                            $.getJSON("json/spells_base.json", function(data) {
+                                var item = data.spells.find(x => x.name === $(e.target).prop("alt"));
+                                $("#spellbox_img").prop("src", $(e.target).prop("src"));
+                                $("#spellbox_name").text(item.name);
+                                $("#spellbox_lvl").text("Уровень: " + item.lvl);
+                                $("#spellbox_cost").text("Стоимость: " + item.cost);
+                                $("#spellbox_duration").text("Длительность: " + item.duration);
+                                $("#spellbox_eff1").text(item.eff1);
+                                $("#spellbox_eff2").text(item.eff2);
+                                $("#spellbox_eff3").text(item.eff3);
+                                $("#spellbox_descr").text(item.descr);
+                            });
+                            break;
+                        }
+                    case "#classbox":
+                        {
+                            $.getJSON("json/classes_base.json", function(data) {
+                                var item = data.classes.find(x => x.name === $(e.target).text());
+                                $("#classbox_name").text(item.name);
+                                $("#classbox_att").text(item.att);
+                                $("#classbox_def").text(item.def);
+                                $("#classbox_pwr").text(item.pwr);
+                                $("#classbox_knl").text(item.knl);
+                                $("#classbox_descr").text(item.descr);
+                            });
+                            break;
+                        }
+                }
+                $(target).show();
                 moveLeft = $(this).outerWidth();
-                moveDown = ($("#spellbox").outerHeight() / 2);
+                moveDown = ($(target).outerHeight() / 2);
             }, function() {
-                if (!($(".heroes_spell").hasClass("show"))) {
-                    $("#spellbox").hide();
+                var target = '#' + ($(this).attr('data-popbox'));
+                if (!($(".pop_target").hasClass("show"))) {
+                    $(target).hide();
                 }
             });
 
-            $('.heroes_spell').mousemove(function(e) {
+            $('.pop_target').mousemove(function(e) {
+                var target = '#' + ($(this).attr('data-popbox'));
                 leftD = e.pageX + parseInt(moveLeft);
-                maxRight = leftD + $("#spellbox").outerWidth();
+                maxRight = leftD + $(target).outerWidth();
                 windowLeft = $(window).width() - 40;
                 windowRight = 0;
-                maxLeft = e.pageX - (parseInt(moveLeft) + $("#spellbox").outerWidth() + 20);
+                maxLeft = e.pageX - (parseInt(moveLeft) + $(target).outerWidth() + 20);
 
                 if (maxRight > windowLeft && maxLeft > windowRight) {
                     leftD = maxLeft;
@@ -51,72 +72,17 @@
                 maxTop = topD;
                 windowTop = parseInt($(document).scrollTop());
                 if (maxBottom > windowBottom) {
-                    topD = windowBottom - $("#spellbox").outerHeight() - 20;
+                    topD = windowBottom - $(target).outerHeight() - 20;
                 } else if (maxTop < windowTop) {
                     topD = windowTop + 20;
                 }
 
-                $("#spellbox").css('top', topD).css('left', leftD);
+                $(target).css('top', topD).css('left', leftD);
             });
-            $('.heroes_spell').click(function(e) {
+            $('.pop_target').click(function(e) {
+                var target = '#' + ($(this).attr('data-popbox'));
                 if (!($(this).hasClass("show"))) {
-                    $("#spellbox").show();
-                }
-                $(this).toggleClass("show");
-            });
-        });
-    });
-    $(function show_classbox() {
-        $(document).ready(function() {
-            var moveLeft = 0;
-            var moveDown = 0;
-            $('.heroes_class').hover(function(e) {
-                $.getJSON("json/classes_base.json", function(data) {
-                    var item = data.classes.find(x => x.name === $(e.target).text());
-                    $("#classbox_name").text(item.name);
-                    $("#classbox_att").text(item.att);
-                    $("#classbox_def").text(item.def);
-                    $("#classbox_pwr").text(item.pwr);
-                    $("#classbox_knl").text(item.knl);
-                    $("#classbox_descr").text(item.descr);
-                });
-
-                $("#classbox").show();
-                moveLeft = $(this).outerWidth();
-                moveDown = ($("#classbox").outerHeight() / 2);
-            }, function() {
-                if (!($(".heroes_class").hasClass("show"))) {
-                    $("#classbox").hide();
-                }
-            });
-
-            $('.heroes_class').mousemove(function(e) {
-                leftD = e.pageX + parseInt(moveLeft);
-                maxRight = leftD + $("#classbox").outerWidth();
-                windowLeft = $(window).width() - 40;
-                windowRight = 0;
-                maxLeft = e.pageX - (parseInt(moveLeft) + $("#classbox").outerWidth() + 20);
-
-                if (maxRight > windowLeft && maxLeft > windowRight) {
-                    leftD = maxLeft;
-                }
-
-                topD = e.pageY - parseInt(moveDown);
-                maxBottom = parseInt(e.pageY + parseInt(moveDown) + 20);
-                windowBottom = parseInt(parseInt($(document).scrollTop()) + parseInt($(window).height()));
-                maxTop = topD;
-                windowTop = parseInt($(document).scrollTop());
-                if (maxBottom > windowBottom) {
-                    topD = windowBottom - $("#classbox").outerHeight() - 20;
-                } else if (maxTop < windowTop) {
-                    topD = windowTop + 20;
-                }
-
-                $("#classbox").css('top', topD).css('left', leftD);
-            });
-            $('.heroes_class').click(function(e) {
-                if (!($(this).hasClass("show"))) {
-                    $("#classbox").show();
+                    $(target).show();
                 }
                 $(this).toggleClass("show");
             });
@@ -175,7 +141,7 @@
                                 Оррин
                             </td>
                             <td>
-                                <p class="heroes_class">Рыцарь</p>
+                                <p class="heroes_class pop_target" data-popbox="classbox">Рыцарь</p>
                             </td>
                             <td><img src="img/speciality_skills/archery.png" alt="Стрельба"></td>
                             <td>-</td>
@@ -196,7 +162,7 @@
                                 Валеска
                             </td>
                             <td>
-                                <p class="heroes_class">Рыцарь</p>
+                                <p class="heroes_class pop_target" data-popbox="classbox">Рыцарь</p>
                             </td>
                             <td><img src="img/speciality_skills/archers.png" alt="Лучники"></td>
                             <td>-</td>
@@ -217,7 +183,7 @@
                                 Эдрик
                             </td>
                             <td>
-                                <p class="heroes_class">Рыцарь</p>
+                                <p class="heroes_class pop_target" data-popbox="classbox">Рыцарь</p>
                             </td>
                             <td><img src="img/speciality_skills/griffins.png" alt="Грифоны"></td>
                             <td>-</td>
@@ -238,7 +204,7 @@
                                 Сильвия
                             </td>
                             <td>
-                                <p class="heroes_class">Рыцарь</p>
+                                <p class="heroes_class pop_target" data-popbox="classbox">Рыцарь</p>
                             </td>
                             <td><img src="img/speciality_skills/navigation.png" alt="Навигация"></td>
                             <td>-</td>
@@ -259,7 +225,7 @@
                                 Сэр Мюллих
                             </td>
                             <td>
-                                <p class="heroes_class">Рыцарь</p>
+                                <p class="heroes_class pop_target" data-popbox="classbox">Рыцарь</p>
                             </td>
                             <td><img src="img/speciality_skills/speed.png" alt="Скорость"></td>
                             <td>-</td>
@@ -280,7 +246,7 @@
                                 Сорша
                             </td>
                             <td>
-                                <p class="heroes_class">Рыцарь</p>
+                                <p class="heroes_class pop_target" data-popbox="classbox">Рыцарь</p>
                             </td>
                             <td><img src="img/speciality_skills/swordsmen.png" alt="Мечники"></td>
                             <td>-</td>
@@ -301,7 +267,7 @@
                                 Кристиан
                             </td>
                             <td>
-                                <p class="heroes_class">Рыцарь</p>
+                                <p class="heroes_class pop_target" data-popbox="classbox">Рыцарь</p>
                             </td>
                             <td><img src="img/speciality_skills/ballista.png" alt="Баллиста"></td>
                             <td>-</td>
@@ -322,7 +288,7 @@
                                 Турис
                             </td>
                             <td>
-                                <p class="heroes_class">Рыцарь</p>
+                                <p class="heroes_class pop_target" data-popbox="classbox">Рыцарь</p>
                             </td>
                             <td><img src="img/speciality_skills/cavaliers.png" alt="Кавалеристы"></td>
                             <td>-</td>
@@ -343,10 +309,10 @@
                                 Рион
                             </td>
                             <td>
-                                <p class="heroes_class">Священник</p>
+                                <p class="heroes_class pop_target" data-popbox="classbox">Священник</p>
                             </td>
                             <td><img src="img/speciality_skills/first_aid.png" alt="Первая помощь"></td>
-                            <td><img src="img/spells/stone_skin.png" class="heroes_spell" data-popbox="spellbox" alt="Каменная кожа"></td>
+                            <td><img src="img/spells/stone_skin.png" class="heroes_spell pop_target" data-popbox="spellbox" alt="Каменная кожа"></td>
                             <td><img src="img/secondary_skills/Basic_Wisdom.png" alt="Базовая Мудрость"></td>
                             <td><img src="img/secondary_skills/Basic_First_Aid.png" alt="Базовая Первая Помощь"></td>
                             <td>1560</td>
@@ -364,10 +330,10 @@
                                 Адель
                             </td>
                             <td>
-                                <p class="heroes_class">Священник</p>
+                                <p class="heroes_class pop_target" data-popbox="classbox">Священник</p>
                             </td>
                             <td><img src="img/speciality_skills/bless.png" alt="Благословление"></td>
-                            <td><img src="img/spells/bless.png" class="heroes_spell" data-popbox="spellbox" alt="Благословление"></td>
+                            <td><img src="img/spells/bless.png" class="heroes_spell pop_target" data-popbox="spellbox" alt="Благословление"></td>
                             <td><img src="img/secondary_skills/Basic_Wisdom.png" alt="Базовая Мудрость"></td>
                             <td><img src="img/secondary_skills/Basic_Diplomacy.png" alt="Базовая Дипломатия"></td>
                             <td>1560</td>
@@ -385,10 +351,10 @@
                                 Катберт
                             </td>
                             <td>
-                                <p class="heroes_class">Священник</p>
+                                <p class="heroes_class pop_target" data-popbox="classbox">Священник</p>
                             </td>
                             <td><img src="img/speciality_skills/weakness.png" alt="Слабость"></td>
-                            <td><img src="img/spells/weakness.png" class="heroes_spell" data-popbox="spellbox" alt="Слабость"></td>
+                            <td><img src="img/spells/weakness.png" class="heroes_spell pop_target" data-popbox="spellbox" alt="Слабость"></td>
                             <td><img src="img/secondary_skills/Basic_Wisdom.png" alt="Базовая Мудрость"></td>
                             <td><img src="img/secondary_skills/Basic_Estates.png" alt="Базовое Имущество"></td>
                             <td>1560</td>
@@ -406,10 +372,10 @@
                                 Аделаида
                             </td>
                             <td>
-                                <p class="heroes_class">Священник</p>
+                                <p class="heroes_class pop_target" data-popbox="classbox">Священник</p>
                             </td>
                             <td><img src="img/speciality_skills/frost_ring.png" alt="Ледяное кольцо"></td>
-                            <td><img src="img/spells/frost_ring.png" class="heroes_spell" data-popbox="spellbox" alt="Ледяное кольцо"></td>
+                            <td><img src="img/spells/frost_ring.png" class="heroes_spell pop_target" data-popbox="spellbox" alt="Ледяное кольцо"></td>
                             <td><img src="img/secondary_skills/Advanced_Wisdom.png" alt="Продвинутая Мудрость"></td>
                             <td>-</td>
                             <td>1560</td>
@@ -427,10 +393,10 @@
                                 Инхам
                             </td>
                             <td>
-                                <p class="heroes_class">Священник</p>
+                                <p class="heroes_class pop_target" data-popbox="classbox">Священник</p>
                             </td>
                             <td><img src="img/speciality_skills/monks.png" alt="Монахи"></td>
-                            <td><img src="img/spells/curse.png" class="heroes_spell" data-popbox="spellbox" alt="Проклятие"></td>
+                            <td><img src="img/spells/curse.png" class="heroes_spell pop_target" data-popbox="spellbox" alt="Проклятие"></td>
                             <td><img src="img/secondary_skills/Basic_Wisdom.png" alt="Базовая Мудрость"></td>
                             <td><img src="img/secondary_skills/Basic_Mysticism.png" alt="Базовый Мистицизм"></td>
                             <td>1560</td>
@@ -448,10 +414,10 @@
                                 Саня
                             </td>
                             <td>
-                                <p class="heroes_class">Священник</p>
+                                <p class="heroes_class pop_target" data-popbox="classbox">Священник</p>
                             </td>
                             <td><img src="img/speciality_skills/eagle_eye.png" alt="Зоркость"></td>
-                            <td><img src="img/spells/dispel.png" class="heroes_spell" data-popbox="spellbox" alt="Снятие заклинаний"></td>
+                            <td><img src="img/spells/dispel.png" class="heroes_spell pop_target" data-popbox="spellbox" alt="Снятие заклинаний"></td>
                             <td><img src="img/secondary_skills/Basic_Wisdom.png" alt="Базовая Мудрость"></td>
                             <td><img src="img/secondary_skills/Basic_Eagle_Eye.png" alt="Базовая Зоркость"></td>
                             <td>1560</td>
@@ -469,10 +435,10 @@
                                 Лоинс
                             </td>
                             <td>
-                                <p class="heroes_class">Священник</p>
+                                <p class="heroes_class pop_target" data-popbox="classbox">Священник</p>
                             </td>
                             <td><img src="img/speciality_skills/prayer.png" alt="Молитва"></td>
-                            <td><img src="img/spells/prayer.png" class="heroes_spell" data-popbox="spellbox" alt="Молитва"></td>
+                            <td><img src="img/spells/prayer.png" class="heroes_spell pop_target" data-popbox="spellbox" alt="Молитва"></td>
                             <td><img src="img/secondary_skills/Basic_Wisdom.png" alt="Базовая Мудрость"></td>
                             <td><img src="img/secondary_skills/Basic_Learning.png" alt="Базовое Обучение"></td>
                             <td>1560</td>
@@ -490,10 +456,10 @@
                                 Каитлин
                             </td>
                             <td>
-                                <p class="heroes_class">Священник</p>
+                                <p class="heroes_class pop_target" data-popbox="classbox">Священник</p>
                             </td>
                             <td><img src="img/speciality_skills/350gold.png" alt="350 золота"></td>
-                            <td><img src="img/spells/cure.png" class="heroes_spell" data-popbox="spellbox" alt="Лечение"></td>
+                            <td><img src="img/spells/cure.png" class="heroes_spell pop_target" data-popbox="spellbox" alt="Лечение"></td>
                             <td><img src="img/secondary_skills/Basic_Wisdom.png" alt="Базовая мудрость"></td>
                             <td><img src="img/secondary_skills/Basic_Intelligence.png" alt="Базовый Интеллект"></td>
                             <td>1560</td>
@@ -510,24 +476,17 @@
         </main>
         <div id="spellbox" class="popbox">
             <img id="spellbox_img"><br>
-            <p id="spellbox_name"></p><br>
-            <!--Уровень-->
+            <h3 id="spellbox_name"></h3><br>
             <p id="spellbox_lvl"></p><br>
-            <!--Стоимость-->
             <p id="spellbox_cost"></p><br>
-            <!--Длительность-->
             <p id="spellbox_duration"></p><br><br>
-            <!--1ур-->
             <p id="spellbox_eff1"></p><br>
-            <!--2ур-->
             <p id="spellbox_eff2"></p><br>
-            <!--3ур-->
             <p id="spellbox_eff3"></p>
-            <!--Описание-->
             <p id="spellbox_descr"></p>
         </div>
         <div id="classbox" class="popbox">
-            <p id="classbox_name"></p><br>
+            <h3 id="classbox_name"></h3><br>
             <table>
                 <thead>
                     <tr>

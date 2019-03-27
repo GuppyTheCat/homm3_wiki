@@ -106,6 +106,16 @@ nav a:hover,
     background-image: url('img/bg/default_bg.jpg');
 }
 
+#spellbox h3{
+    margin-top: -10px;
+    margin-bottom: -5px;
+}
+
+#classbox h3{
+    margin-top: -5px;
+    margin-bottom: -5px;
+}
+
 .window_blue {
     border: 30px solid transparent;
     -moz-border-image: url(img/ui/border.png) 30 round;
