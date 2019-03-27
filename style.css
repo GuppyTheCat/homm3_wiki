@@ -9,7 +9,6 @@ html {
 body {
     font-family: Georgia;
     cursor: url(img/ui/cursor.png), default;
-    /*background-image: url('img/bg/default_bg_blue_dark.jpg');*/
     color: #ddc151;
 }
 
@@ -26,14 +25,15 @@ main {
 
 nav {
     width: 180px;
-    background-image: url('img/bg/default_bg_blue_dark.jpg');
     overflow-x: hidden;
     margin-top: 0;
-    border: 30px solid transparent;
-    border-image: url(img/ui/border.png) 30 round;
-    -moz-border-image: url(img/ui/border.png) 30 round;
-    -webkit-border-image: url(img/ui/border.png) 30 round;
-    -o-border-image: url(img/ui/border.png) 30 round;
+    position: -webkit-sticky;
+    position: -moz-sticky;
+    position: -ms-sticky;
+    position: -o-sticky;
+    position: sticky;
+    top: 0;
+    align-self: flex-start;
 }
 
 nav>a,
@@ -56,16 +56,6 @@ nav a:hover,
 
 .dropdown-container a {
     font-size: 16px;
-}
-
-.sticky {
-    position: -webkit-sticky;
-    position: -moz-sticky;
-    position: -ms-sticky;
-    position: -o-sticky;
-    position: sticky;
-    top: 0;
-    align-self: flex-start;
 }
 
 #content {
@@ -99,21 +89,21 @@ nav a:hover,
     margin: -10px;
 }
 
-.popbox{
+.popbox {
     display: none;
     position: absolute;
     z-index: 99999;
     text-align: center;
     margin-left: auto;
     margin-right: auto;
+    color: #efc66e;
+    width: 20em;
     border: 30px solid transparent;
     -moz-border-image: url(img/ui/border.png) 30 round;
     -webkit-border-image: url(img/ui/border.png) 30 round;
     -o-border-image: url(img/ui/border.png) 30 round;
     border-image: url(img/ui/border.png) 30 round;
     background-image: url('img/bg/default_bg.jpg');
-    color: #efc66e;
-    width: 20em;  
 }
 
 .window_blue {
@@ -122,9 +112,16 @@ nav a:hover,
     -webkit-border-image: url(img/ui/border.png) 30 round;
     -o-border-image: url(img/ui/border.png) 30 round;
     border-image: url(img/ui/border.png) 30 round;
-
     background-image: url('img/bg/default_bg_blue.jpg');
-    overflow-x: auto;
+}
+
+.window_dark_blue {
+    border: 30px solid transparent;
+    -moz-border-image: url(img/ui/border.png) 30 round;
+    -webkit-border-image: url(img/ui/border.png) 30 round;
+    -o-border-image: url(img/ui/border.png) 30 round;
+    border-image: url(img/ui/border.png) 30 round;
+    background-image: url('img/bg/default_bg_blue_dark.jpg');
 }
 
 table {
@@ -134,6 +131,10 @@ table {
 
 td img {
     width: 3em;
+}
+
+#heroes_table {
+    overflow-x: auto;
 }
 
 #heroes_table td:nth-child(1) {
