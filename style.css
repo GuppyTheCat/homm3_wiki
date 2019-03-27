@@ -79,7 +79,7 @@ nav a:hover,
 }
 
 /* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
-@media screen and (max-height: 450px) {
+/*@media screen and (max-height: 450px) {
     .sidenav {
         padding-top: 15px;
     }
@@ -87,25 +87,7 @@ nav a:hover,
     .sidenav a {
         font-size: 18px;
     }
-}
-
-
-#spellbox {
-    display: none;
-    position: absolute;
-    z-index: 99999;
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
-    border: 30px solid transparent;
-    -moz-border-image: url(img/ui/border.png) 30 round;
-    -webkit-border-image: url(img/ui/border.png) 30 round;
-    -o-border-image: url(img/ui/border.png) 30 round;
-    border-image: url(img/ui/border.png) 30 round;
-    background-image: url('img/bg/default_bg.jpg');
-    color: #efc66e;
-    width: 20em;
-}
+}*/
 
 #spellbox img {
     display: block;
@@ -117,7 +99,7 @@ nav a:hover,
     margin: -10px;
 }
 
-#classbox {
+.popbox{
     display: none;
     position: absolute;
     z-index: 99999;
@@ -131,5 +113,46 @@ nav a:hover,
     border-image: url(img/ui/border.png) 30 round;
     background-image: url('img/bg/default_bg.jpg');
     color: #efc66e;
-    width: 20em;
+    width: 20em;  
+}
+
+.window_blue {
+    border: 30px solid transparent;
+    -moz-border-image: url(img/ui/border.png) 30 round;
+    -webkit-border-image: url(img/ui/border.png) 30 round;
+    -o-border-image: url(img/ui/border.png) 30 round;
+    border-image: url(img/ui/border.png) 30 round;
+
+    background-image: url('img/bg/default_bg_blue.jpg');
+    overflow-x: auto;
+}
+
+table {
+    border-collapse: collapse;
+    margin: auto;
+}
+
+td img {
+    width: 3em;
+}
+
+#heroes_table td:nth-child(1) {
+    font-size: 80%;
+}
+
+#heroes_table td:nth-child(4) img {
+    width: 80%;
+}
+
+th {
+    font-size: 85%;
+}
+
+th,
+td {
+    border: 1px solid grey;
+    padding: 5px;
+    background-image: url('img/bg/default_bg_blue_dark.jpg');
+    text-align: center;
+    vertical-align: middle;
 }
