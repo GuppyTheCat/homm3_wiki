@@ -18,12 +18,12 @@ a {
 }
 
 main {
-    margin: auto;
     display: flex;
     justify-content: center;
 }
 
 nav {
+    min-width: 180px;
     width: 180px;
     overflow-x: hidden;
     margin-top: 0;
@@ -61,7 +61,9 @@ nav a:hover,
 #content {
     margin-left: 10px;
     width: calc(75% - 190px);
+    overflow-x: auto;
 }
+
 
 #full {
     width: 100%;
@@ -106,7 +108,8 @@ nav a:hover,
     background-image: url('img/bg/default_bg.jpg');
 }
 
-#secondaryskillbox img, #specialitybox img {
+#secondaryskillbox img,
+#specialitybox img {
     width: 4em;
 }
 
@@ -146,6 +149,15 @@ nav a:hover,
     background-image: url('img/bg/default_bg_blue_dark.jpg');
 }
 
+.window_default {
+    border: 30px solid transparent;
+    -moz-border-image: url(img/ui/border.png) 30 round;
+    -webkit-border-image: url(img/ui/border.png) 30 round;
+    -o-border-image: url(img/ui/border.png) 30 round;
+    border-image: url(img/ui/border.png) 30 round;
+    background-image: url('img/bg/default_bg.jpg');
+}
+
 table {
     border-collapse: collapse;
     margin: auto;
@@ -153,11 +165,6 @@ table {
 
 td img {
     width: 3em;
-}
-
-#heroes_table {
-    overflow-x: auto;
-    min-width: 80%;
 }
 
 #heroes_table td:nth-child(1) {
@@ -169,7 +176,7 @@ td img {
 }
 
 th {
-    font-size: 85%;
+    font-size: 80%;
 }
 
 th,
@@ -179,4 +186,18 @@ td {
     background-image: url('img/bg/default_bg_blue_dark.jpg');
     text-align: center;
     vertical-align: middle;
+}
+
+#town_icons_table td {
+    width: 95px;
+    border-style: none;
+    background-image: none;
+}
+
+#town_icons_table {
+    margin-bottom: 30px;
+}
+
+h1 {
+    text-align: center;
 }
