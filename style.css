@@ -15,6 +15,7 @@ body {
 a {
     text-decoration: none;
     color: #ddc151;
+    cursor: url(img/ui/cursor.png), default;
 }
 
 main {
@@ -137,7 +138,7 @@ nav a:hover,
     -webkit-border-image: url(img/ui/border.png) 30 round;
     -o-border-image: url(img/ui/border.png) 30 round;
     border-image: url(img/ui/border.png) 30 round;
-    background-image: url('img/bg/default_bg_blue.jpg');
+    background-image: url(img/bg/default_bg_blue.jpg);
 }
 
 .window_dark_blue {
@@ -146,7 +147,7 @@ nav a:hover,
     -webkit-border-image: url(img/ui/border.png) 30 round;
     -o-border-image: url(img/ui/border.png) 30 round;
     border-image: url(img/ui/border.png) 30 round;
-    background-image: url('img/bg/default_bg_blue_dark.jpg');
+    background-image: url(img/bg/default_bg_blue_dark.jpg);
 }
 
 .window_default {
@@ -155,7 +156,7 @@ nav a:hover,
     -webkit-border-image: url(img/ui/border.png) 30 round;
     -o-border-image: url(img/ui/border.png) 30 round;
     border-image: url(img/ui/border.png) 30 round;
-    background-image: url('img/bg/default_bg.jpg');
+    background-image: url(img/bg/default_bg.jpg);
 }
 
 table {
@@ -183,7 +184,7 @@ th,
 td {
     border: 1px solid grey;
     padding: 5px;
-    background-image: url('img/bg/default_bg_blue_dark.jpg');
+    background-image: url(img/bg/default_bg_blue_dark.jpg);
     text-align: center;
     vertical-align: middle;
 }
