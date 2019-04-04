@@ -3,8 +3,23 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>Герои</title>
+    <title>Существа</title>
     <link rel="stylesheet" type="text/css" href="/homm3_wiki/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript">
+    $.getJSON("/homm3_wiki/json/navigation.json", function(data) {
+        for (var i = 0; i < data.navigation.length; i++) {
+            $("nav").append('<a class="dropdown-btn">' + data.navigation[i].main + '</a>');
+            if (data.navigation[i].sub.length != 0) {
+                var subs = [];
+                for (var j = 0; j < data.navigation[i].sub.length; j++) {
+                    subs.push('<a href="' + data.navigation[i].sub[j][1] + '">' + data.navigation[i].sub[j][0] + '</a>');
+                }
+                $("nav").append('<div class="dropdown-container">' + subs.join('<br>') + '</div>');
+            }
+        }
+    });
+    </script>
 </head>
 
 <body>
@@ -14,25 +29,6 @@
         </header>
         <main>
             <nav class="window_dark_blue">
-                <a class="dropdown-btn">Герои</a>
-                <div class="dropdown-container">
-                    <a href="/homm3_wiki/heroes/heroes.html">Список героев</a>
-                    <a href="#">Вторичные навыки</a>
-                    <a href="#">Специализации</a>
-                </div>
-                <a class="dropdown-btn">Существа</a>
-                <div class="dropdown-container">
-                    <a href="/homm3_wiki/creatures.html">Список существ</a>
-                    <a href="#">Месяц монстра</a>
-                    <a href="#">Неделя монстра</a>
-                </div>
-                <a class="dropdown-btn">Артефакты</a>
-                <div class="dropdown-container">
-                    <a href="/homm3_wiki/artifacts/artifacts.html">Все артефакты</a>
-                    <a href="#">Сборные артефакты</a>
-                </div>
-                <a href="#">Магия</a>
-                <a href="#">Ресурсы</a>
             </nav>
             <div id="content" class="window_dark_blue">
                 <h1>Существа</h1>
@@ -62,18 +58,20 @@
         </main>
     </div>
     <script type="text/javascript">
-    var dropdown = document.getElementsByClassName("dropdown-btn");
-    for (var i = 0; i < dropdown.length; i++) {
-        dropdown[i].addEventListener("click", function() {
-            this.classList.toggle("active");
-            var dropdownContent = this.nextElementSibling;
-            if (dropdownContent.style.display === "block") {
-                dropdownContent.style.display = "none";
-            } else {
-                dropdownContent.style.display = "block";
-            }
-        });
-    }
+    $(document).ready(function() {
+        var dropdown = document.getElementsByClassName("dropdown-btn");
+        for (var i = 0; i < dropdown.length; i++) {
+            dropdown[i].addEventListener("click", function() {
+                this.classList.toggle("active");
+                var dropdownContent = this.nextElementSibling;
+                if (dropdownContent.style.display === "block") {
+                    dropdownContent.style.display = "none";
+                } else {
+                    dropdownContent.style.display = "block";
+                }
+            });
+        }
+    });
     </script>
 </body>
 
