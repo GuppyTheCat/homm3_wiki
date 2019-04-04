@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Герои</title>
+    <link rel="stylesheet" type="text/css" href="/homm3_wiki/style.css">
+</head>
+
+<body>
+    <div id="full">
+        <header style="height:15em;">
+            <!--<img src="/homm3_wiki/img/header.png" style="display:block;margin:auto;">-->
+        </header>
+        <main>
+            <nav class="window_dark_blue">
+                <a class="dropdown-btn">Герои</a>
+                <div class="dropdown-container">
+                    <a href="/homm3_wiki/heroes/heroes.html">Список героев</a>
+                    <a href="#">Вторичные навыки</a>
+                    <a href="#">Специализации</a>
+                </div>
+                <a class="dropdown-btn">Существа</a>
+                <div class="dropdown-container">
+                    <a href="/homm3_wiki/creatures.html">Список существ</a>
+                    <a href="#">Месяц монстра</a>
+                    <a href="#">Неделя монстра</a>
+                </div>
+                <a class="dropdown-btn">Артефакты</a>
+                <div class="dropdown-container">
+                    <a href="/homm3_wiki/artifacts/artifacts.html">Все артефакты</a>
+                    <a href="#">Сборные артефакты</a>
+                </div>
+                <a href="#">Магия</a>
+                <a href="#">Ресурсы</a>
+            </nav>
+            <div id="content" class="window_dark_blue">
+                <h1>Артефакты</h1>
+                <p>Всего в игре существует 141 артефакт (некоторые из них являются составной частью одного из 12 сборных артефактов). Помимо этого насчитывается 7 специальных артефактов. Все их можно разделить на следующие типы:</p>               
+                <table>
+                    <tr>
+                        <td>Специальные</td>
+                        <td>Не имеют класса, не могут попадаться в объектах на карте приключений.</td>
+                    </tr>
+                    <tr>
+                        <td>Сокровища</td>
+                        <td>Наименее ценные и наиболее частые артефакты.</td>
+                    </tr>
+                    <tr>
+                        <td>Малые</td>
+                        <td>Более ценные и редкие артефакты.</td>
+                    </tr>
+                    <tr>
+                        <td>Великие</td>
+                        <td>Очень ценные и редкие артефакты.</td>
+                    </tr>
+                    <tr>
+                        <td>Реликты</td>
+                        <td>Самые ценные и редкие артефакты.</td>
+                    </tr>
+                    <tr>
+                        <td>Сборные</td>
+                        <td>Комбо-артефакты состоящие из нескольких более простых.</td>
+                    </tr>
+                </table>
+                <p>Одновременно на себе герой может использовать 14 артефактов: Голова, Шея, 2 кольца, Правая рука, Левая рука, Грудь, Плащ, Ноги, 5 артефактов типа Разное. Плюс к этому 4 типа боевых машин и Книга заклинаний. Неиспользуемые артефакты хранятся в рюкзаке героя, который ограничен 64 слотами. После заполнения всех слотов рюкзака, герой не сможет подбирать артефакты и копать Грааль, а получаемые артефакты будут просто пропадать.</p>
+                <p>Два одинаковых артефакта, одновременно используемые героем, не суммируют свои эффекты, т.е.действует только один. Исключением являются артефакты, приносящие ресурсы, и 2 Кольца с неподвижным глазом дракона, которые одновременно повышают атаку и защиту героя.</p>
+            </div>
+        </main>
+    </div>
+    <script type="text/javascript">
+    var dropdown = document.getElementsByClassName("dropdown-btn");
+    for (var i = 0; i < dropdown.length; i++) {
+        dropdown[i].addEventListener("click", function() {
+            this.classList.toggle("active");
+            var dropdownContent = this.nextElementSibling;
+            if (dropdownContent.style.display === "block") {
+                dropdownContent.style.display = "none";
+            } else {
+                dropdownContent.style.display = "block";
+            }
+        });
+    }
+    </script>
+</body>
+
+</html>
