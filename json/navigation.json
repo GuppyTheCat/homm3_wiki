@@ -18,6 +18,12 @@
         ]
     },
     {
+        "main": "Замки",
+        "sub": [
+            ["Общая информация", "/homm3_wiki/castles/castles.html"]
+        ]
+    },
+    {
         "main": "Артефакты",
         "sub": [
             ["Общая информация", "/homm3_wiki/artifacts/artifacts.html"],

@@ -159,6 +159,15 @@ nav a:hover,
     background-image: url(img/bg/default_bg.jpg);
 }
 
+.window_nocorners {
+    border: 7px solid transparent;
+    -moz-border-image: url(img/ui/BORDER_BLUE.png) 7 round;
+    -webkit-border-image: url(img/ui/BORDER_BLUE.png) 7 round;
+    -o-border-image: url(img/ui/BORDER_BLUE.png) 7 round;
+    border-image: url(img/ui/BORDER_BLUE.png) 7 round;
+    background-image: url(img/bg/default_bg_blue_dark.jpg);
+}
+
 table {
     border-collapse: collapse;
     margin: auto;
