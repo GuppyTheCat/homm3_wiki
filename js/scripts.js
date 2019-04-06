@@ -9,9 +9,7 @@ $.getJSON("/homm3_wiki/json/navigation.json", function(data) {
             $("nav").append('<div class="dropdown-container">' + subs.join('<br>') + '</div>');
         }
     }
-});
-$(function update_navigation() {
-    var dropdown = document.getElementsByClassName("dropdown-btn");
+    var dropdown = document.getElementsByClassName("dropdown-btn");//Create clicks
     for (var i = 0; i < dropdown.length; i++) {
         dropdown[i].addEventListener("click", function() {
             this.classList.toggle("active");
