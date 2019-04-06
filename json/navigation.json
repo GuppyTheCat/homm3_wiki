@@ -4,6 +4,7 @@
         "main": "Герои",
         "sub": [
             ["Список героев", "/homm3_wiki/heroes/heroes.html"],
+            ["Классы", "/homm3_wiki/heroes/classes.html"],
             ["Вторичные навыки", "#"],
             ["Специализации", "#"]
         ]

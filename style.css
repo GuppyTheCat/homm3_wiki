@@ -176,7 +176,7 @@ td img {
     width: 80%;
 }
 
-th {
+#heroes_table th {
     font-size: 80%;
 }
 
@@ -201,4 +201,14 @@ td {
 
 h1 {
     text-align: center;
+}
+
+ul {
+   list-style: none;
+   margin-left: 0;
+   padding-left: 1em;
+   text-indent: 1em;
+}
+li{
+    margin-top: 5px;
 }
