@@ -18,9 +18,9 @@
         ]
     },
     {
-        "main": "Замки",
+        "main": "Города",
         "sub": [
-            ["Общая информация", "/homm3_wiki/castles/castles.html"]
+            ["Общая информация", "/homm3_wiki/towns/towns.html"]
         ]
     },
     {
