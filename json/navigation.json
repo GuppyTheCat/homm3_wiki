@@ -6,7 +6,8 @@
             ["Список героев", "/homm3_wiki/heroes/heroes.html"],
             ["Классы", "/homm3_wiki/heroes/classes.html"],
             ["Вторичные навыки", "#"],
-            ["Специализации", "#"]
+            ["Специализации", "#"],
+            ["Опыт", "/homm3_wiki/heroes/experience.html"]
         ]
     },
     {
