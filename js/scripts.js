@@ -1,4 +1,4 @@
-$.getJSON("/homm3_wiki/json/navigation.json", function(data) {
+$.getJSON("/json/navigation.json", function(data) {
     for (var i = 0; i < data.navigation.length; i++) {
         $("nav").append('<a class="dropdown-btn">' + data.navigation[i].main + '</a>');
         if (data.navigation[i].sub.length != 0) {
@@ -30,7 +30,7 @@ $(function show_popbox() {
         switch (target) {
             case "#spellbox":
                 {
-                    $.getJSON("/homm3_wiki/json/spells_base.json", function(data) {
+                    $.getJSON("/json/spells_base.json", function(data) {
                         var item = data.spells.find(x => x.name === $(e.target).prop("alt"));
                         $("#spellbox_img").prop("src", $(e.target).prop("src"));
                         $("#spellbox_name").text(item.name);
@@ -49,7 +49,7 @@ $(function show_popbox() {
                 }
             case "#classbox":
                 {
-                    $.getJSON("/homm3_wiki/json/classes_base.json", function(data) {
+                    $.getJSON("/json/classes_base.json", function(data) {
                         var item = data.classes.find(x => x.name === $(e.target).text());
                         $("#classbox_name").text(item.name);
                         $("#classbox_att").text(item.att);
@@ -62,7 +62,7 @@ $(function show_popbox() {
                 }
             case "#specialitybox":
                 {
-                    $.getJSON("/homm3_wiki/json/specialities_base.json", function(data) {
+                    $.getJSON("/json/specialities_base.json", function(data) {
                         var item = data.specialities.find(x => x.name === $(e.target).prop("alt"));
                         $("#specialitybox_img").prop("src", $(e.target).prop("src"));
                         $("#specialitybox_name").text(item.name);
@@ -72,7 +72,7 @@ $(function show_popbox() {
                 }
             case "#secondaryskillbox":
                 {
-                    $.getJSON("/homm3_wiki/json/secondary_skills_base.json", function(data) {
+                    $.getJSON("/json/secondary_skills_base.json", function(data) {
                         var item = data.secondary_skills.find(x => x.name === $(e.target).prop("alt"));
                         $("#secondaryskillbox_img").prop("src", $(e.target).prop("src"));
                         $("#secondaryskillbox_name").text(item.name);
